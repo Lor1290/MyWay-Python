@@ -1,0 +1,438 @@
+#Import
+from random import randint
+import secrets
+import time
+import sys
+
+#Definizioni
+def print_ASCII(image, delay):
+    for i in image:
+        print(i)
+        time.sleep(delay)
+
+def print_listtext(text_list, delay):
+    for i in text_list:
+        for I in i:
+            sys.stdout.write(I)
+            sys.stdout.flush()
+            time.sleep(delay)
+
+def print_text(text, delay):
+    for i in text:
+        print(i, end="")
+        sys.stdout.flush()
+        time.sleep(delay)
+
+#Carte da gioco
+ace_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                  "│                         │",
+                  "│ A                       │",
+                  "│ ♠                       │",
+                  "│                         │",
+                  "│                         │",
+                  "│            w            │",
+                  "│           www           │",
+                  "│          wwwww          │",
+                  "│         wwwwwww         │",
+                  "│        wwwwwwwww        │",
+                  "│         wwwwwww         │",
+                  "│            w            │",
+                  "│          wwwww          │",
+                  "│                         │",
+                  "│                         │",
+                  "│                       A │",
+                  "│                       ♠ │",
+                  "│                         │",
+                  "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+two_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                  "│                         │",
+                  "│ 2          w            │",
+                  "│ ♠         www           │",
+                  "│          wwwww          │", 
+                  "│         wwwwwww         │",
+                  "│          wwwww          │",
+                  "│            w            │",
+                  "│           www           │",
+                  "│                         │",
+                  "│                         │",
+                  "│           www           │",
+                  "│            w            │",
+                  "│          wwwww          │",
+                  "│         wwwwwww         │",
+                  "│          wwwww          │",
+                  "│           www         ♠ │",
+                  "│            w          2 │",
+                  "│                         │",
+                  "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+tree_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                   "│                         │",
+                   "│ 3          w            │",
+                   "│ ♠         www           │", 
+                   "│          wwwww          │", 
+                   "│            w            │",
+                   "│           www           │",
+                   "│                         │",
+                   "│            w            │",
+                   "│           www           │",
+                   "│          wwwww          │",
+                   "│            w            │",
+                   "│           www           │",
+                   "│                         │",
+                   "│            w            │",
+                   "│           www           │",
+                   "│          wwwww          │",
+                   "│            w          ♠ │",
+                   "│           www         3 │",
+                   "│                         │",
+                   "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+four_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                   "│                         │",
+                   "│ 4     w         w     4 │",
+                   "│ ♠    www       www    ♠ │",  
+                   "│     wwwww     wwwww     │", 
+                   "│       w         w       │",
+                   "│      www       www      │",
+                   "│                         │",
+                   "│                         │",
+                   "│                         │",
+                   "│                         │",
+                   "│                         │",
+                   "│                         │",
+                   "│                         │",
+                   "│      www       www      │",
+                   "│       w         w       │",
+                   "│     wwwww     wwwww     │",
+                   "│ ♠    www       www    ♠ │",
+                   "│ 4     w         w     4 │",
+                   "│                         │",
+                   "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+five_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                   "│                         │",
+                   "│ 5     w         w     5 │",
+                   "│ ♠    www       www    ♠ │",  
+                   "│     wwwww     wwwww     │", 
+                   "│       w         w       │",
+                   "│      www       www      │",
+                   "│                         │",
+                   "│            w            │",
+                   "│           www           │",
+                   "│          wwwww          │",
+                   "│            w            │",
+                   "│           www           │",
+                   "│                         │",
+                   "│      www       www      │",
+                   "│       w         w       │",
+                   "│     wwwww     wwwww     │",
+                   "│ ♠    www       www    ♠ │",
+                   "│ 5     w         w     5 │",
+                   "│                         │",
+                   "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+six_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                  "│                         │",
+                  "│ 6     w         w     6 │",
+                  "│ ♠    www       www    ♠ │", 
+                  "│     wwwww     wwwww     │", 
+                  "│       w         w       │",
+                  "│      www       www      │",
+                  "│                         │",
+                  "│       w         w       │",
+                  "│      www       www      │",
+                  "│     wwwww     wwwww     │",
+                  "│       w         w       │",
+                  "│      www       www      │",
+                  "│                         │",
+                  "│      www       www      │",
+                  "│       w         w       │",
+                  "│     wwwww     wwwww     │",
+                  "│ ♠    www       www    ♠ │",
+                  "│ 6     w         w     6 │",
+                  "│                         │",
+                  "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+seven_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                    "│                         │",
+                    "│ 7     w         w     7 │",
+                    "│ ♠    www       www    ♠ │",  
+                    "│     wwwww     wwwww     │", 
+                    "│       w    w    w       │",
+                    "│      www  www  www      │",
+                    "│          wwwww          │",
+                    "│     w      w      w     │",
+                    "│    www    www    www    │",
+                    "│   wwwww         wwwww   │",
+                    "│     w             w     │",
+                    "│    www           www    │",
+                    "│                         │",
+                    "│      www       www      │",
+                    "│       w         w       │",
+                    "│     wwwww     wwwww     │",
+                    "│ ♠    www       www    ♠ │",
+                    "│ 7     w         w     7 │",
+                    "│                         │",
+                    "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+eight_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                    "│                         │",
+                    "│ 8     w         w     8 │",
+                    "│ ♠    www       www    ♠ │",  
+                    "│     wwwww     wwwww     │", 
+                    "│       w    w    w       │",
+                    "│      www  www  www      │",
+                    "│          wwwww          │",
+                    "│     w      w      w     │",
+                    "│    www    www    www    │",
+                    "│   wwwww         wwwww   │",
+                    "│     w     www     w     │",
+                    "│    www     w     www    │",
+                    "│          wwwww          │",
+                    "│      www  www  www      │",
+                    "│       w    w    w       │",
+                    "│     wwwww     wwwww     │",
+                    "│ ♠    www       www    ♠ │",
+                    "│ 8     w         w     8 │",
+                    "│                         │",
+                    "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+nine_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                   "│                         │",
+                   "│ 9   w      w      w   9 │",
+                   "│ ♠  www    www    www  ♠ │",  
+                   "│   wwwww  wwwww  wwwww   │", 
+                   "│     w      w      w     │",
+                   "│    www    www    www    │",
+                   "│                         │",
+                   "│     w      w      w     │",
+                   "│    www    www    www    │",
+                   "│   wwwww  wwwww  wwwww   │",
+                   "│     w      w      w     │",
+                   "│    www    www    www    │",
+                   "│                         │",
+                   "│    www    www    www    │",
+                   "│     w      w      w     │",
+                   "│   wwwww  wwwww  wwwww   │",
+                   "│ ♠  www    www    www  ♠ │",
+                   "│ 9   w      w      w   9 │",
+                   "│                         │",
+                   "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+ten_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                  "│                         │",
+                  "│ 10  w      w      w  10 │",
+                  "│ ♠  www    www    www  ♠ │",  
+                  "│   wwwww  wwwww  wwwww   │", 
+                  "│     w      w      w     │",
+                  "│    www    www    www    │",
+                  "│                         │",
+                  "│     w      ♠      w     │",
+                  "│    www           www    │",
+                  "│   wwwww   TEN   wwwww   │",
+                  "│     w             w     │",
+                  "│    www     ♠     www    │",
+                  "│                         │",
+                  "│    www    www    www    │",
+                  "│     w      w      w     │",
+                  "│   wwwww  wwwww  wwwww   │",
+                  "│ ♠  www    www    www  ♠ │",
+                  "│ 10  w      w      w  10 │",
+                  "│                         │",
+                  "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+jack_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                   "│                         │",
+                   "│           wwwwwwwwwwww  │",
+                   "│           wwwwwwwwwwww  │",  
+                   "│              wwwwww     │", 
+                   "│              wwwwww     │",
+                   "│              wwwwww     │",
+                   "│    JACK      wwwwww     │",
+                   "│              wwwwww     │",
+                   "│     ♠♠       wwwwww     │",
+                   "│              wwwwww     │",
+                   "│              wwwwww     │",
+                   "│              wwwwww     │",
+                   "│              wwwwww     │",
+                   "│              wwwwww     │",
+                   "│  wwwwwwww    wwwwww     │",
+                   "│    wwwww    wwwwwww     │",
+                   "│     wwwww wwwwwww       │",
+                   "│        wwwwwwwww        │",
+                   "│                         │",
+                   "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+queen_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                    "│                         │",
+                    "│       wwwwwww    QUEEN  │",    
+                    "│     wwwwwwwwwww         │",             
+                    "│   wwww       wwww   ♠♠  │",         
+                    "│  wwww         wwww      │",    
+                    "│ wwww           wwww     │",        
+                    "│ wwww           wwww     │",        
+                    "│ wwww           wwww     │",        
+                    "│ wwww           wwww     │",         
+                    "│ wwww           wwww     │",         
+                    "│ wwww           wwww     │",        
+                    "│ wwww           wwww     │",
+                    "│ wwww           wwww     │",
+                    "│ wwww           wwww     │",
+                    "│  wwww         wwww      │",
+                    "│   wwww       wwwwwwww   │",
+                    "│    wwwwwwwwwwww  wwww   │",
+                    "│      wwwwwwww     wwww  │",
+                    "│                         │",
+                    "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]  
+
+king_of_spades = [ "┌─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┐",
+                   "│                         │",
+                   "│ wwwwwwwww     wwwwwww   │",    
+                   "│   wwwww        wwwww    │",             
+                   "│   wwwww      wwwww      │",         
+                   "│   wwwww    wwwww        │",    
+                   "│   wwwww  wwwww          │",        
+                   "│   wwwwwwww        KING  │",        
+                   "│   wwwwwwww              │",         
+                   "│   wwwww  wwwww      ♠♠  │",         
+                   "│   wwwww    wwwww        │",         
+                   "│   wwwww     wwwww       │",        
+                   "│   wwwww     wwwww       │",
+                   "│   wwwww      wwwww      │",
+                   "│   wwwww       wwwww     │",
+                   "│   wwwww       wwwww     │",
+                   "│   wwwww        wwwww    │",
+                   "│   wwwww        wwwww    │",
+                   "│ wwwwwwwww     wwwwwww   │",
+                   "│                         │",
+                   "└─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ─┘" ]
+
+#Variabili
+players_list = []
+group_of_cards_1 = {11 : ace_of_spades,2 : two_of_spades,3 : tree_of_spades,4 : four_of_spades,5 : five_of_spades,6 : six_of_spades,7 : seven_of_spades,8 : eight_of_spades,9 : nine_of_spades,10 : ten_of_spades,10 : jack_of_spades,10 : queen_of_spades,10 : king_of_spades }  
+group_of_cards_2 = {1 : ace_of_spades,2 : two_of_spades,3 : tree_of_spades,4 : four_of_spades,5 : five_of_spades,6 : six_of_spades,7 : seven_of_spades,8 : eight_of_spades,9 : nine_of_spades,10 : ten_of_spades,10 : jack_of_spades,10 : queen_of_spades,10 : king_of_spades }  
+group_of_point = {}
+game = True
+rule = True
+player_game_1 = True
+
+#Testi
+text_1 = "Welcome to the new version of Black Jack: 'Black Jack 2.0' made by Lorenzo Poli. if you want to play, please enter the number of the players: "
+text_2 = "Now, enter the name of the players: "
+text_3 = "Rules: Blackjack hands are scored by their point total. The hand with the highest total wins as long as it doesn't exceed 21; a hand with a higher total than 21 is said to bust. Cards 2 through 10 are worth their face value, and face cards (jack, queen, king) are also worth 10."
+text_4 = "P.S. In this version of the game, we only have cards of spades, for time reason"         
+text_5 = "Ok, so the game start now!"
+text_6 = "Sorry, but you overrun"
+text_7 = "Ok, so your turn is over!"
+text_8 = "BlackJack!"
+text_9 = "Ok, the game is finished. Now see the resault: "
+text_11 = "Well, it was a good game. You want to re-play? press '1' for re-playing or press '2' for leaving: "
+text_12 = "Ok, Goodbye!"
+text_13 = "Ok, now, what you want to do? press '1' if you want to read the rules, press '2' if you want to play: "
+
+#Intro
+while game:
+    print_text(text_1, 0.05)
+    players = int(input())
+    print()
+    print_text(text_2, 0.05)
+    print()
+    
+    #Ciclo 'for' giocatori
+    for i in range(players):
+        player = input()
+        players_list.append(player)
+
+    #Regolamento
+    while rule:
+        print()
+        print_text(text_13, 0.05)
+        decision_1 = int(input())
+        if decision_1 == 1:
+            print()
+            print_text(text_3, 0.05)
+            print()
+            print_text(text_4, 0.05)
+            print()
+        if decision_1 == 2:
+            print_text(text_5, 0.05)
+            print()
+            rule = False
+
+    #Partita dei giocatori
+    while player_game_1:
+        for i in players_list:
+            player_game_2 = True
+            text_14 = f"{i} what you want to do now? take or stay? press '1' for taking, press '2' for staying: "
+            card_1 = randint(2, 11)
+            card_2 = randint(1, 10)
+            player_card = []
+            tot = 0
+            tot += card_1
+            tot += card_2
+            player_card.append(card_1)
+            player_card.append(card_2)
+            print()
+            print_ASCII(group_of_cards_1[card_1], 0.1)
+            print_ASCII(group_of_cards_2[card_2], 0.1)
+            print()
+            if tot == 21:
+                    print_text(text_8, 0.05)
+                    group_of_point[i] = tot
+                    continue
+                
+            #Partita del giocatore
+            while player_game_2:
+                if tot > 21:
+                    if player_card.count(11) == 1:
+                        tot -= 10
+                        player_card.remove(11)
+                if tot > 21:
+                    print_text(text_6, 0.05)        
+                    print()
+                    group_of_point[i] = tot
+                    player_game_2 = False
+                    continue
+                print_text(text_14, 0.05)
+                decision_2 = int(input())
+                if decision_2 == 1:
+                    if tot > 10:
+                        card_3 = randint(1, 10)
+                        player_card.append(card_3)
+                        print()
+                        print_ASCII(group_of_cards_2[card_3], 0.1)
+                        print()
+                        tot += card_3
+                    else:
+                        card_3 = randint(2, 11)
+                        player_card.append(card_3)
+                        print()
+                        print_ASCII(group_of_cards_1[card_3], 0.1)
+                        print()
+                        tot += card_3
+                else:
+                    print_text(text_7, 0.05)
+                    print()
+                    group_of_point[i] = tot
+                    player_game_2 = False
+
+        player_game_1 = False
+    #Finale
+    print()
+    print_text(text_9, 0.05)
+    print()
+    for i in players_list:
+        text_10 = f"{i} arrived at: {group_of_point[i]}"
+        print_text(text_10, 0.05)
+        print()
+    print()
+    print_text(text_11, 0.05)
+    decision_3 = input()
+    print()
+    if decision_3 == 2:
+        print()
+        print_text(text_11, 0.1)
+        game = False
+
+
