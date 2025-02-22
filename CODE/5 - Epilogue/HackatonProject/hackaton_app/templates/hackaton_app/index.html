@@ -1,0 +1,39 @@
+{% extends 'hackaton_app/base.html' %}
+{% load static %}
+
+{% block extends %}
+
+<!-- The HTML and CSS part is made by @khr0me and @Babriele -->
+
+    <div class="container">
+        <div class="item">
+            <div class="text" style="width: 400px;" id="first">
+                <h1>Home</h1>
+                <p>Italy's healthcare system, recognized for its top-notch care and inclusive coverage, encounters some
+                <a href="{% url 'problem dimostration page' %}">problems</a> such as a lack of personnel, bureaucratic complexities, 
+                differences across regions, and inadequate funding. It is crucial to tackle these obstacles to ensure the system remains 
+                sustainable and efficient. <a href="{% url 'solution dimostration page' %}">solutions</a> to those problems.</p>
+            </div>
+            <img src="{% static 'hackaton_app/photo/TeamFortran.jpg' %}" alt="" style="width: 55%; min-width: 400px; border-radius: 25px;" id="img-first">
+        </div>
+        
+        <div class="item">
+            <img src="{% static 'hackaton_app/photo/photo_3.png' %}" alt="" style="width: 35%; min-width: 360px;">
+            <div class="text">
+                <h1>Why?</h1>
+                <p>
+                    We created this website to help with problems of the 
+                    healthcare accessibility created by the rising costs 
+                    and resource limitations by looking at the case of Italy.
+                </p>
+            </div>
+        </div>
+
+        <div class="arrows" style="display: flex; justify-content: flex-end;">
+            <div class="next">
+                <a href="{% url 'problem dimostration page' %}">Next &#62;</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'hackaton_app/base.html' %}
+{% load static %}
+
+{% block extends %}
+    <div class="container">
+         <div class="item">
+            <img src="{% static 'hackaton_app/photo/madi8.jpeg' %}" alt="babriele logo" style="width: 300px; height: 300px; border-radius: 50%;" id="img-first">
+            <div class="text" id="first">
+                <h1>@Babriele</h1>
+                <p>
+                    Hi, I'm Gabriel Madiotto, I'm 13 years old developer who likes all kinds of coding but specialize in the front-end part.
+                    In these years I have learnt Python, Java, JavaScript, ASM 8086, Batch, Bash and of course HTML and CSS. <br>
+                    I joined this competition because I want to learn more about this world and hope to have a carrier in this sector.
+                    <br>
+                    GitHub: <a href="https://github.com/xBabriele" style="font-size: 20px;">xBabriele</a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="text">
+                <h1>@khr0me</h1>
+                <p>
+                    Hi, I'm Stefano Casonato (khr0me), I'm 14 years old, and my passion is IT. I have gained 
+                    experience in some languages in 2023/2034, such as Java, Python, and 
+                    JavaScript; I know a bit of Assembly (8086), HTML, and CSS. I also know 
+                    the basics of C and C++, and I want to improve my experiences in those 
+                    last two and maybe start learning even the older ones :) <br>
+
+                    I also love electronics; in fact, I've built some circuits with Arduino 
+                    and Raspberry Pi, and I also love soldering, studying Wi-Fi networks, 
+                    and cracking things. You can find me here: <a href="https://github.com/khr0me" style="font-size: 20px;">
+                    Click Here</a>.
+                </p>
+            </div> 
+            <img src="{% static 'hackaton_app/photo/alien.png' %}" alt="khr0me logo" style="width: 300px; height: 300px;">
+        </div>
+        
+        <div class="item">
+            <img src="{% static 'hackaton_app/photo/policoding.jpeg' %}" alt="policoding logo" style="width: 300px; height: 300px;">
+            <div class="text">
+                <h1>@policoding</h1>
+                <p>
+                    Hi, I'm Lorenzo Poli, I'm a 14 y.o. back-end developer who likes all style programming languages.
+                    I mainly code in Python, Java and JavaScript but I'm also familiar with ASM, ARM, Batch, Bash
+                    and also FORTRAN IV and COBOL. I like also Wi-FI Networks and electronics such as Raspberry 
+                    and Arduino. In future I want to become a full-stack developer.
+                </p>
+            </div>
+        </div>
+
+        <div class="text2">
+            <h1>We are Here for You!</h1>
+            <p>
+                Do not worry, if you have some problems or any kind of question to ask,
+                don't mind to contact us! Send us an email at the following address: 
+                &nbsp;fortranrp@gmail.com<br>
+            </p>
+        </div>
+
+        <div class="arrows">
+            <div class="previous">
+                <a href="{% url 'post forum' %}">&#60; Previous</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

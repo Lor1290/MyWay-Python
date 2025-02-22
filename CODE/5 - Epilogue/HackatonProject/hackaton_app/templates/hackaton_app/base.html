@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="HTML and CSS made by @khr0me and @Babriele">
+    <meta name="description" content="Healthcare Accessibility in Italy">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRP Healthcare</title>
+
+    <link rel="icon" href="{% static 'hackaton_app/photo/photo_7.png' %}">
+    <link rel="stylesheet" href="{% static 'hackaton_app/base.css' %}">
+    <script src = "{% static 'hackaton_app/base.js' %}"></script>
+<body>
+
+    <nav>
+        <div class="header">
+            <a href="{% url 'home page' %}"><div class="name">
+                <img src="{% static 'hackaton_app/photo/photo_7.png' %}" alt="FORTRAN Rizz Party's LOGO">
+            
+                <strong style="font-size: 25px;">FRP Healthcare Accessibility</strong>
+            </div></a>
+            <div class="menu">
+                <a href="{% url 'home page' %}"><div class="menu-item" data-page="home">
+                    <p>Home</p>
+                </div></a>
+
+                <a href="{% url 'problem dimostration page' %}"><div class="menu-item" data-page="problems">
+                    <p>Problems</p>
+                </div></a>
+
+                <a href="{% url 'solution dimostration page' %}"><div class="menu-item" data-page="solution">
+                    <p>Solutions</p>
+                </div></a>
+                
+                <a href="{% url 'post forum' %}"><div class="menu-item" data-page="forum">
+                    <p>Forum</p>
+                </div></a>
+
+                <a href="{% url 'about page' %}"><div class="menu-item" data-page="about">
+                    <p>About</p>
+                </div></a>
+            </div>
+        </div>
+    </nav>
+    {% block extends %} {% endblock %}
+    <footer>
+        <p>FORTRAN Rizz Party - 2024</p>
+        <hr style="border: 2px solid #E26EE5; border-radius: 20px; width: 100px;">
+        <p>@khr0me &nbsp;&nbsp;&nbsp;&nbsp;@Babriele &nbsp;&nbsp;&nbsp;&nbsp;@policoding</p>
+    </footer> 
+    </body>
+</html>

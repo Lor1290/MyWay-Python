@@ -1,0 +1,65 @@
+{% extends 'hackaton_app/base.html' %}
+{% load static %}
+
+{% block extends %}
+    <div class="container">
+        <div class="item">
+            <div class="text" id="first">
+                <h1>Healthcare problems: Inefficienty and Waste Causes</h1>
+                <p>
+                    Burocracy, resources, long queues, and abuse are common in our hospitals.
+                    The healthcare industry plays a role in society's health yet it frequently
+                    faces challenges with inefficiencies that result in substantial wastage.<br><br>
+                    This not only incurs economic burdens but also characterizes the level of care.
+                    patients receive. Here we delve into the factors contributing to waste
+                    within the healthcare sector; bureaucracy, ineffective resource management,
+                    lengthy wait times and delays as well, as instances of fraud and misuse.
+                </p>
+            </div>
+            <img src="{% static 'hackaton_app/photo/photo_waste.png' %}" alt="" style="width: 35%; min-width: 300px;">
+        </div>
+        
+        <div class="item">
+            <img src="{% static 'hackaton_app/photo/money.png' %}" style="width: 250px; height: 250px">
+            <div class="text">
+                <h1>Excess of bureaucracy</h1>
+                <p>
+                    Excessive bureaucracy and inefficient handling of paperwork can lead to delays 
+                    and additional costs in services provided by nursing staff. This mainly leads 
+                    to an internal slowdown and consequently to a loss of time greater than the 
+                    established potential loss.  
+                </p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="text">
+                <h1>Fraud Control and Prevention Systems:</h1>
+                <p>
+                    Implementing advanced control systems and data analysis can help identify and 
+                    prevent fraud and abuse. These unfortunately do occur, albeit rarely. Here is 
+                    what we thought we would propose to try to make a small change, for a better 
+                    future.
+                </p>
+            </div>
+            <img src="{% static 'hackaton_app/photo/frode.png' %}" alt="" style="width: 300px; height: 300px">
+        </div>
+        <div class="text2">
+            <h1>Fraud Control and Prevention Systems:</h1>
+            <p>
+                Here is what we thought we could propose to try to make a small change, for a better 
+                future... <br>
+                <a href="{% url 'solution dimostration page' %}">Click Here!</a>
+            </p>
+        </div>
+
+        <div class="arrows">
+            <div class="previous">
+                <a href="{% url 'home page' %}">&#60; Previous</a>
+            </div>
+            <div class="next">
+                <a href="{% url 'solution dimostration page' %}">Next &#62;</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'hackaton_app/base.html' %}
+{% load static %}
+
+{% block extends %}
+    <div class="container">
+        <div class="item" style="margin-bottom: 60px;">
+            <div class="text2" id="first">
+                <h1>Forum: Tell us and the community <br> your ideas!</h1>
+                <p style="margin-bottom: 40px;">
+                    Don't worry to express yourself! If you want to communicate with our community 
+                    or simply ask some questions, that's the correct section for you!
+                    Just type ... without logging and you're done!
+                </p>
+                    
+                <div class="inputForum">
+                    <p>&nbsp;&#x1F4E7;&nbsp; Send a message:</p>
+                    <form method='post'>
+                        <a href="{% url 'create post' %}">Send Message</a>                       
+                    </form> 
+                </div>
+            </div>
+        </div>
+        
+        <div class="item" style=" margin: 0; justify-content: space-between; border: none;">
+            <div class="text">
+                <h1>Let's see what others say...</h1>
+            </div>
+        </div> 
+        
+        <div class="item"  style="display: block; margin-top: 80px">
+            <div class="forum">
+                {% for post in posts %}
+                    <ul>
+                        <li class="row">
+                            <div class="info">      <!-- Message's sender info-->
+                                <h4 class="author">
+                                    {{ post.author }}
+                                </h4>
+                                <p class="timestamp">
+                                    {{ post.now_date }}
+                                </p>
+                            </div>
+                            <textarea disabled="disabled">{{ post.content }}</textarea>
+                        </li>       
+                    </ul>   
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="arrows">
+            <div class="previous">
+                <a href="{% url 'solution dimostration page' %}">&#60; Previous</a>
+            </div>
+            <div class="next">
+                <a href="{% url 'about page' %}">Next &#62;</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'hackaton_app/base.html' %}
+{% load static %}
+
+{% block extends %}
+    <div class="container">
+        <div class="item">
+            <div class="text" id="first">
+                <h1>Healthcare problems: Inefficienty and Waste Causes</h1>
+                <p>
+                    Implementing electronic document management (EDM) systems and 
+                    digitizing paperwork can reduce bureaucracy and increase efficiency.
+                    Electronic health record (EHR) management systems can improve 
+                    information sharing across departments and reduce waiting times. <br><br>
+                    The use of IoT (Internet of Things) to monitor medical equipment 
+                    and <br>hospital resources in real time can reduce waste and optimize resource use.
+                </p>
+            </div>
+            <img src="{% static 'hackaton_app/photo/photo_2.png' %}" alt="" style="width: 300px; height: 300px">
+        </div>
+        
+        <div class="item">
+            <img src="{% static 'hackaton_app/photo/photo_6.png' %}" alt="" style="width: 300px; height: 300px">
+            <div class="text">
+                <h1>Excess of bureaucracy</h1>
+                <p>
+                    Adoption of telemedicine solutions can reduce wait times and improve 
+                    access to care, especially in rural areas.
+                    Patients can receive consultations and monitoring remotely, reducing 
+                    the need for in-person visits, thereby reducing long and tedious queues.
+                </p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="text">
+                <h1>Fraud Control and Prevention Systems:</h1>
+                <p>
+                    The implementation of advanced control systems and data analytics is a 
+                    key strategy for identifying and preventing fraud and abuse in the health 
+                    care system. Such systems can contribute significantly to improving the 
+                    efficiency and transparency of healthcare operations, reducing costs and 
+                    increasing the quality of services provided to patients.
+                </p>
+            </div>
+            <img src="{% static 'hackaton_app/photo/photo_tshirt.png' %}" alt="" style="width: 340px; height: 310px">
+        </div>
+
+        <div class="text2">
+            <h1>But... there's more!</h1>
+            <p>
+                The FRP(FORTRAN Rizz Party) has developed a special software, but only for you!
+                It's completly free and you can use it to improve your healthcare!<br>
+                <a href="???">Get Started</a>
+            </p>
+        </div>
+
+        <div class="arrows">
+            <div class="previous">
+                <a href="{% url 'problem dimostration page' %}">&#60; Previous</a>
+            </div>
+            <div class="next">
+                <a href="{% url 'post forum' %}">Next &#62;</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
